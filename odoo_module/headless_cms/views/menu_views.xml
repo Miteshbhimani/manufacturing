@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_headless_cms_root" name="Headless CMS" sequence="50"/>
+    
+    <menuitem id="menu_headless_cms_pages" name="Pages" parent="menu_headless_cms_root" action="action_headless_page" sequence="10"/>
+</odoo>

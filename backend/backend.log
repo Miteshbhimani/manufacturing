@@ -1,0 +1,32 @@
+
+> backend@1.0.0 dev
+> ts-node src/server.ts
+
+◇ injecting env (8) from .env // tip: ⌘ override existing { override: true }
+◇ injecting env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[2026-04-14T12:33:28.620Z] INFO: Backend API server started | Context: {"port":5000,"environment":"development","nodeVersion":"v22.22.2","timestamp":"2026-04-14T12:33:28.620Z"} | ReqID: 2pga4gq56br
+Backend API running on http://localhost:5000
+Backend API accessible on network: http://192.168.1.68:5000
+API Documentation: http://localhost:5000/api-docs
+Environment: development
+[2026-04-14T12:33:58.568Z] POST /api/public/enquiry - IP: 127.0.0.1 - UA: curl/8.5.0
+[ODOO] Authenticating admin user: admin@gmail.com
+Odoo RPC Error: Error: Odoo RPC Error: relation "base_cache_signaling" does not exist
+LINE 3: ...                    FROM base_registry_signaling, base_cache...
+                                                             ^
+
+    at Function.rpcCall (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:243:15)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Function.authenticate (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:267:20)
+    at async Function.executeKw (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:280:17)
+    at async handlePublicEnquiry (/home/meet/Documents/manufacturing_website/backend/src/controllers/public.controller.ts:12:16)
+Non-fatal: Failed to create lead in Odoo Error: Failed to communicate with Odoo: Odoo RPC Error: relation "base_cache_signaling" does not exist
+LINE 3: ...                    FROM base_registry_signaling, base_cache...
+                                                             ^
+
+    at Function.rpcCall (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:259:13)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async Function.authenticate (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:267:20)
+    at async Function.executeKw (/home/meet/Documents/manufacturing_website/backend/src/services/odoo.service.ts:280:17)
+    at async handlePublicEnquiry (/home/meet/Documents/manufacturing_website/backend/src/controllers/public.controller.ts:12:16)
+[2026-04-14T12:33:59.809Z] POST /api/public/enquiry - 201 - 1242ms

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "pump-casing",
+    "slug": "pump-casing-assembly",
+    "name": "Pump Casing Assembly",
+    "shortDescription": "Heavy-duty pump casing designed for high-pressure industrial applications with precision engineering.",
+    "category": "Pump Parts",
+    "industry": "Industrial Manufacturing",
+    "heroImage": "/pump-images-360/casing/casing_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/casing/casing_front.jpg",
+      "right": "/pump-images-360/casing/casing_right.jpg",
+      "back": "/pump-images-360/casing/casing_back.jpg",
+      "left": "/pump-images-360/casing/casing_left.jpg",
+      "top": "/pump-images-360/casing/casing_top.jpg",
+      "bottom": "/pump-images-360/casing/casing_bottom.jpg"
+    },
+    "specs": [
+      "Material: Cast Iron SS 304",
+      "Pressure Rating: Up to 250 PSI",
+      "Temperature Range: -20°C to 120°C",
+      "Corrosion Resistance: Excellent"
+    ]
+  },
+  {
+    "id": "impeller-type-a",
+    "slug": "impeller-type-a-closed",
+    "name": "Impeller Type A - Closed",
+    "shortDescription": "Closed-type impeller for high-efficiency fluid dynamics with balanced performance characteristics.",
+    "category": "Pump Parts",
+    "industry": "Fluid Dynamics",
+    "heroImage": "/pump-images-360/impeller/impeller_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/impeller/impeller_front.jpg",
+      "right": "/pump-images-360/impeller/impeller_right.jpg",
+      "back": "/pump-images-360/impeller/impeller_back.jpg",
+      "left": "/pump-images-360/impeller/impeller_left.jpg",
+      "top": "/pump-images-360/impeller/impeller_top.jpg",
+      "bottom": "/pump-images-360/impeller/impeller_bottom.jpg"
+    },
+    "specs": [
+      "Material: Stainless Steel SS 316",
+      "Type: Closed Impeller",
+      "Efficiency: 85%+",
+      "Application: Chemical Processing"
+    ]
+  },
+  {
+    "id": "mechanical-seal",
+    "slug": "mechanical-seal-assembly",
+    "name": "Mechanical Seal Assembly",
+    "shortDescription": "High-performance mechanical seal for leak-free operation in demanding pump applications.",
+    "category": "Pump Parts",
+    "industry": "Chemical Processing",
+    "heroImage": "/pump-images-360/seal/seal_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/seal/seal_front.jpg",
+      "right": "/pump-images-360/seal/seal_right.jpg",
+      "back": "/pump-images-360/seal/seal_back.jpg",
+      "left": "/pump-images-360/seal/seal_left.jpg",
+      "top": "/pump-images-360/seal/seal_top.jpg",
+      "bottom": "/pump-images-360/seal/seal_bottom.jpg"
+    },
+    "specs": [
+      "Material: Carbon/SIC/TC",
+      "Pressure Rating: Up to 40 Bar",
+      "Temperature Range: -50°C to 200°C",
+      "Leak Rate: < 1x10⁻⁶ m³/s"
+    ]
+  },
+  {
+    "id": "shaft-sleeve",
+    "slug": "shaft-sleeve-ss304",
+    "name": "Shaft Sleeve SS 304",
+    "shortDescription": "Protective shaft sleeve designed to prevent shaft wear and corrosion in aggressive environments.",
+    "category": "Pump Parts",
+    "industry": "Marine & Industrial",
+    "heroImage": "/pump-images-360/shaft/shaft_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/shaft/shaft_front.jpg",
+      "right": "/pump-images-360/shaft/shaft_right.jpg",
+      "back": "/pump-images-360/shaft/shaft_back.jpg",
+      "left": "/pump-images-360/shaft/shaft_left.jpg",
+      "top": "/pump-images-360/shaft/shaft_top.jpg",
+      "bottom": "/pump-images-360/shaft/shaft_bottom.jpg"
+    },
+    "specs": [
+      "Material: Stainless Steel SS 304",
+      "Surface Finish: Ra 0.8μm",
+      "Corrosion Resistance: Excellent",
+      "Installation: Press-fit design"
+    ]
+  },
+  {
+    "id": "wear-ring",
+    "slug": "wear-ring-assembly",
+    "name": "Wear Ring Assembly",
+    "shortDescription": "Precision-engineered wear ring for maintaining optimal clearance and pump efficiency.",
+    "category": "Pump Parts",
+    "industry": "Maintenance Parts",
+    "heroImage": "/pump-images-360/wearRing/wearRing_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/wearRing/wearRing_front.jpg",
+      "right": "/pump-images-360/wearRing/wearRing_right.jpg",
+      "back": "/pump-images-360/wearRing/wearRing_back.jpg",
+      "left": "/pump-images-360/wearRing/wearRing_left.jpg",
+      "top": "/pump-images-360/wearRing/wearRing_top.jpg",
+      "bottom": "/pump-images-360/wearRing/wearRing_bottom.jpg"
+    },
+    "specs": [
+      "Material: Bronze SAE 660",
+      "Hardness: 75-90 HB",
+      "Clearance: 0.3-0.5mm",
+      "Lifespan: 10,000+ hours"
+    ]
+  },
+  {
+    "id": "gasket-kit",
+    "slug": "gasket-kit-complete",
+    "name": "Gasket Kit Complete",
+    "shortDescription": "Complete gasket set for pump overhaul including all sealing components for comprehensive maintenance.",
+    "category": "Pump Parts",
+    "industry": "Maintenance Supplies",
+    "heroImage": "/pump-images-360/gasket/gasket_front.jpg",
+    "images360": {
+      "front": "/pump-images-360/gasket/gasket_front.jpg",
+      "right": "/pump-images-360/gasket/gasket_right.jpg",
+      "back": "/pump-images-360/gasket/gasket_back.jpg",
+      "left": "/pump-images-360/gasket/gasket_left.jpg",
+      "top": "/pump-images-360/gasket/gasket_top.jpg",
+      "bottom": "/pump-images-360/gasket/gasket_bottom.jpg"
+    },
+    "specs": [
+      "Material: Nitrile/PTFE/Viton",
+      "Temperature Range: -40°C to 250°C",
+      "Pressure Rating: Up to 300 PSI",
+      "Includes: 12 gaskets, O-rings"
+    ]
+  }
+]

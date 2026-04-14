@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_headless_page_form" model="ir.ui.view">
+        <field name="name">headless.page.form</field>
+        <field name="model">headless.page</field>
+        <field name="arch" type="xml">
+            <form string="Dynamic Page">
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Page Title"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="slug"/>
+                            <field name="is_published" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="seo_title"/>
+                            <field name="seo_description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sections" name="sections">
+                            <field name="section_ids">
+                                <list>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name"/>
+                                    <field name="component_type"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_headless_page_list" model="ir.ui.view">
+        <field name="name">headless.page.list</field>
+        <field name="model">headless.page</field>
+        <field name="arch" type="xml">
+            <list string="Dynamic Pages">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="slug"/>
+                <field name="is_published" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_headless_page" model="ir.actions.act_window">
+        <field name="name">Website Pages</field>
+        <field name="res_model">headless.page</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

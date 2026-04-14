@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_headless_page,access.headless.page,model_headless_page,base.group_user,1,1,1,1
+access_headless_page_public,access.headless.page.public,model_headless_page,base.group_public,1,0,0,0
+access_headless_section,access.headless.section,model_headless_section,base.group_user,1,1,1,1
+access_headless_section_public,access.headless.section.public,model_headless_section,base.group_public,1,0,0,0

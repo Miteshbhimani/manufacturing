@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_controller_1 = require("../controllers/auth.controller");
+const router = (0, express_1.Router)();
+router.post('/login', auth_controller_1.login);
+router.get('/verify', auth_controller_1.verify);
+router.get('/logout-redirect', auth_controller_1.logoutRedirect);
+router.post('/create-odoo-session', auth_controller_1.createOdooSession);
+exports.default = router;
