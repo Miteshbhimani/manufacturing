@@ -12,17 +12,20 @@ load_dotenv(override=True)
 
 app = FastAPI(title="AI Chatbot Backend")
 
-app.add_middleware(
-    CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
-        "https://nucleus.netlify.app"
+        "https://nucleus.netlify.app",
+        "https://benevolent-bavarois-0cadab.netlify.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+async def root():
+    return {"message": "AI Chatbot Backend is running", "status": "ok"}
 
 agent = AIAgent()
 db_manager = VectorDBManager()
