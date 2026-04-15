@@ -163,151 +163,151 @@ class SimpleAIAgent:
         return relevant_content[:3]  # Return top 3 relevant pages
     
     def chat(self, user_query, chat_history=None):
-        try:
-            # Check if this is a product-specific query
-            product_keywords = ['product', 'pump', 'casting', 'component', 'shell', 'part']
-            is_product_query = any(keyword in user_query.lower() for keyword in product_keywords)
-            
+        # First, always fetch and analyze website data
+        print("Analyzing website data for response...")
+        website_results = self.search_website_content(user_query)
+        
+        # Build comprehensive website context
+        website_data_context = ""
+        if website_results:
+            website_data_context = "\n\nRelevant information from our website:\n"
+            for result in website_results:
+                website_data_context += f"- Source: {result['url']}\nContent: {result['content']}\n"
+        
+        # Get all website content for comprehensive analysis
+        all_website_data = self.fetch_website_data()
+        full_website_context = ""
+        if all_website_data:
+            full_website_context = "\n\nComplete website analysis:\n"
+            for page in all_website_data[:10]:  # Limit to first 10 pages for context
+                full_website_context += f"Page: {page['url']}\n{page['content'][:500]}...\n\n"
+        
+        # Check if this is a product-specific query
+        product_keywords = ['product', 'pump', 'casting', 'component', 'shell', 'part']
+        is_product_query = any(keyword in user_query.lower() for keyword in product_keywords)
+        
+        # Always try to use website data first
+        if website_results or all_website_data:
+            # For product queries, try to get dynamic product information
             if is_product_query and self.use_dynamic_data:
-                # Try to get dynamic product information
                 search_results = self.search_products_dynamically(user_query)
                 if search_results:
-                    # Format dynamic results for the response
                     product_info = "\n\n".join([
                         f"**{result['title']}**\n{result['description'][:200]}...\nCategory: {result['category']}"
                         for result in search_results[:3]
                     ])
                     
-                    enhanced_query = f"{user_query}\n\nHere are some relevant products from our website:\n{product_info}"
-                    response = self.chain.invoke({"input": enhanced_query})
-                    return response
+                    enhanced_query = f"{user_query}\n\n{website_data_context}\n\n{full_website_context}\n\nHere are some relevant products from our website:\n{product_info}"
+                    try:
+                        response = self.chain.invoke({"input": enhanced_query})
+                        return response
+                    except Exception as e:
+                        print(f"Chain invocation failed: {e}")
+                        return self._format_website_based_response(search_results, website_results, all_website_data)
             
-            # Default response using the chain
-            response = self.chain.invoke({"input": user_query})
-            return response
-            
+            # For non-product queries or when product search fails, use website data
+            enhanced_query = f"{user_query}\n\n{website_data_context}\n\n{full_website_context}"
+            try:
+                response = self.chain.invoke({"input": enhanced_query})
+                return response
+            except Exception as e:
+                print(f"Chain invocation failed: {e}")
+                return self._format_website_based_response(None, website_results, all_website_data)
+        
+        # If no website data is available, try to fetch it
+        print("No website data available, attempting to fetch...")
+        try:
+            self.cached_website_data = None  # Clear cache to force fresh fetch
+            fresh_website_data = self.fetch_website_data()
+            if fresh_website_data:
+                return self.chat(user_query, chat_history)  # Retry with fresh data
         except Exception as e:
-            # Check if it's an authentication error
-            if "401" in str(e) or "User not found" in str(e):
-                # Use website data to provide dynamic response
-                website_content = self.search_website_content(user_query)
-                
-                if website_content:
-                    response = f"""I apologize, but I'm currently experiencing technical difficulties with my AI service. 
-
-However, I've scanned our website and found the following relevant information:
-
-**Information from Nucleus Metal Cast Website:**
-
-"""
-                    for i, content in enumerate(website_content, 1):
-                        response += f"**Page {i}:** {content['url']}\n"
-                        response += f"{content['content']}\n\n"
-                    
-                    response += f"""
-**Company Information:**
-- **Company Name:** Nucleus Metal Cast Private Limited
-- **GSTIN:** 24AAFCN3454D1ZP
-- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
-
-This information is gathered directly from our website in real-time. For more details, please visit our website or contact us directly.
-
-I apologize for the inconvenience and appreciate your understanding."""
-                    return response
-                else:
-                    # Fallback to enhanced static response
-                    user_query_lower = user_query.lower()
-                    
-                    if any(keyword in user_query_lower for keyword in ['product', 'manufacturing', 'make', 'produce']):
-                        return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
-
-However, I can provide information about our manufacturing capabilities:
-
-**Nucleus Metal Cast Private Limited - Manufacturing Products:**
-
-## **Shell Castings**
-- Industrial pump castings
-- Valve components
-- Marine hardware castings
-- Automotive components
-- General engineering castings
-
-## **Pumps and Pump Components** 
-- Centrifugal pumps
-- Submersible pumps
-- Monoblock pumps
-- Pump spare parts
-- Custom pump solutions
-
-## **Precision Industrial Components**
-- High-precision machined parts
-- Custom cast components
-- Industrial valves
-- Engineering components
-
-## **Industrial Castings**
-- Heavy-duty castings
-- Infrastructure components
-- Railway castings
-- Power plant components
-- Fire industry castings
-
-**Company Information:**
-- **Company Name:** Nucleus Metal Cast Private Limited
-- **GSTIN:** 24AAFCN3454D1ZP
-- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
-
-For detailed product specifications and inquiries, please visit our website or contact our sales team directly.
-
-I apologize for the inconvenience and appreciate your understanding."""
-                
-                # Company information queries
-                elif any(keyword in user_query_lower for keyword in ['company', 'about', 'who', 'gstin', 'contact']):
-                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
-
-Here's our company information:
-
-**Nucleus Metal Cast Private Limited**
-
-**Company Details:**
-- **GSTIN:** 24AAFCN3454D1ZP
-- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
-- **Industry:** Manufacturing and Engineering
-
-**Our Expertise:**
-- Shell casting technology
-- Pump manufacturing
-- Precision component manufacturing
-- Industrial casting solutions
-- Custom manufacturing solutions
-
-**Contact Information:**
-For business inquiries, technical support, or detailed information about our products and services, please visit our website or contact us directly.
-
-I apologize for the inconvenience and appreciate your understanding."""
-                
-                # Default response
-                else:
-                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
-
-**Nucleus Metal Cast Private Limited - Company Overview:**
-
-**Our Manufacturing Services:**
-- Shell Castings
-- Pumps and Pump Components  
-- Precision Industrial Components
-- Industrial Castings
-
-**Company Information:**
-- **Company Name:** Nucleus Metal Cast Private Limited
-- **GSTIN:** 24AAFCN3454D1ZP
-- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
-
-For specific product information, technical specifications, or business inquiries, please visit our website or contact our team directly.
-
-I apologize for the inconvenience and appreciate your understanding."""
-            else:
-                return f"I apologize, but I'm experiencing technical difficulties. Please try again later or contact us directly. Error: {str(e)}"
+            print(f"Failed to fetch fresh website data: {e}")
+        
+        # Only fall back to basic response if absolutely no website data is available
+        return self._format_emergency_response(user_query)
+    
+    def _format_product_response(self, search_results, website_context):
+        """Format response with product information when chain fails"""
+        response = "**Here are some relevant products from Nucleus Metal Cast:**\n\n"
+        
+        for result in search_results[:5]:
+            response += f"**{result['title']}**\n"
+            response += f"{result['description'][:300]}...\n"
+            response += f"Category: {result['category']}\n\n"
+        
+        if website_context:
+            response += website_context + "\n\n"
+        
+        response += "**Company Information:**\n"
+        response += "- **Company Name:** Nucleus Metal Cast Private Limited\n"
+        response += "- **GSTIN:** 24AAFCN3454D1ZP\n"
+        response += "- **Specialization:** Shell casting, pump manufacturing, and precision industrial components\n\n"
+        response += "For more detailed information, please visit our website or contact us directly."
+        
+        return response
+    
+    def _format_website_response(self, website_results):
+        """Format response with website information when chain fails"""
+        response = "**Information from Nucleus Metal Cast Website:**\n\n"
+        
+        for i, result in enumerate(website_results, 1):
+            response += f"**Page {i}:** {result['url']}\n"
+            response += f"{result['content']}\n\n"
+        
+        response += "**Company Information:**\n"
+        response += "- **Company Name:** Nucleus Metal Cast Private Limited\n"
+        response += "- **GSTIN:** 24AAFCN3454D1ZP\n"
+        response += "- **Specialization:** Shell casting, pump manufacturing, and precision industrial components\n\n"
+        response += "This information is gathered directly from our website in real-time. For more details, please visit our website or contact us directly."
+        
+        return response
+    
+    def _format_website_based_response(self, search_results, website_results, all_website_data):
+        """Format response based on website data when chain fails"""
+        response = "**Based on our website analysis:**\n\n"
+        
+        # Add product information if available
+        if search_results:
+            response += "**Relevant Products:**\n"
+            for result in search_results[:5]:
+                response += f"**{result['title']}**\n"
+                response += f"{result['description'][:300]}...\n"
+                response += f"Category: {result['category']}\n\n"
+        
+        # Add relevant website content
+        if website_results:
+            response += "**Relevant Information from Website:**\n"
+            for result in website_results:
+                response += f"From {result['url']}:\n"
+                response += f"{result['content']}\n\n"
+        
+        # Add general website content if no specific results
+        if not website_results and all_website_data:
+            response += "**General Website Information:**\n"
+            for page in all_website_data[:3]:
+                response += f"From {page['url']}:\n"
+                response += f"{page['content'][:400]}...\n\n"
+        
+        response += "**Company Information:**\n"
+        response += "- **Company Name:** Nucleus Metal Cast Private Limited\n"
+        response += "- **GSTIN:** 24AAFCN3454D1ZP\n"
+        response += "- **Specialization:** Shell casting, pump manufacturing, and precision industrial components\n\n"
+        response += "This information is extracted directly from our website. For more details, please visit our website or contact us directly."
+        
+        return response
+    
+    def _format_emergency_response(self, user_query):
+        """Emergency response when no website data is available - only as last resort"""
+        response = "**Nucleus Metal Cast Private Limited**\n\n"
+        response += "I apologize, but I'm currently unable to access our website data. \n\n"
+        response += "**Basic Company Information:**\n"
+        response += "- **Company Name:** Nucleus Metal Cast Private Limited\n"
+        response += "- **GSTIN:** 24AAFCN3454D1ZP\n"
+        response += "- **Specialization:** Shell casting, pump manufacturing, and precision industrial components\n\n"
+        response += "Please visit our website at https://encoreshellcastllp.com/ for detailed information about our products and services, or try again later when our website analysis is functional."
+        
+        return response
 
 if __name__ == "__main__":
     agent = SimpleAIAgent()

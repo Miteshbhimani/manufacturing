@@ -120,7 +120,7 @@ const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      // Temporarily hardcoded to fix CORS issue - should use env var in production
+      // Use production API URL
       const aiApiUrl = 'https://chatbot-8jk1.onrender.com';
       console.log('AI API URL:', aiApiUrl); // Debug log to verify URL
       const response = await fetch(`${aiApiUrl}/chat`, {
@@ -172,17 +172,17 @@ const Chatbot: React.FC = () => {
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`max-w-[85%] p-3 rounded-lg text-sm ${
+                className={`max-w-[85%] p-3 rounded-lg text-sm overflow-hidden ${
                   msg.role === 'user'
                     ? 'bg-blue-600 text-white self-end rounded-br-none'
                     : 'bg-white text-gray-800 self-start rounded-bl-none shadow-sm border border-gray-100'
                 }`}
               >
                 {msg.role === 'user' ? (
-                  msg.content
+                  <div className="break-words overflow-wrap-anywhere">{msg.content}</div>
                 ) : (
                   <div 
-                    className="chatbot-response"
+                    className="chatbot-response overflow-hidden"
                     dangerouslySetInnerHTML={{ __html: formatBotResponse(msg.content) }}
                   />
                 )}
