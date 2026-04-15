@@ -152,7 +152,29 @@ class SimpleAIAgent:
             return response
             
         except Exception as e:
-            return f"I apologize, but I'm experiencing technical difficulties. Please try again later or contact us directly. Error: {str(e)}"
+            # Check if it's an authentication error
+            if "401" in str(e) or "User not found" in str(e):
+                return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+
+However, I can still help you with basic information about Nucleus Metal Cast Private Limited:
+
+**Company Information:**
+- **Company Name:** Nucleus Metal Cast Private Limited
+- **GSTIN:** 24AAFCN3454D1ZP
+- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
+
+**Our Products:**
+- Shell Castings
+- Pumps and Pump Components
+- Precision Industrial Components
+- Industrial Castings
+
+**Contact Information:**
+Please visit our website or contact us directly for detailed product information and inquiries.
+
+I apologize for the inconvenience and appreciate your understanding."""
+            else:
+                return f"I apologize, but I'm experiencing technical difficulties. Please try again later or contact us directly. Error: {str(e)}"
 
 if __name__ == "__main__":
     agent = SimpleAIAgent()
