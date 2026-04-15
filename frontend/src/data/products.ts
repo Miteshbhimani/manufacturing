@@ -21,7 +21,7 @@ const pumpProducts: Product[] = [
       "Heavy-duty centrifugal pump casing cast in shell mould process for dimensional accuracy and surface finish. Ideal for water supply, chemical and process industry applications.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/1.jpg",
+    heroImage: "/assets/pump/1.jpg",
     price: null,
     specs: [
       "Product Type: Pump Casing",
@@ -39,7 +39,7 @@ const pumpProducts: Product[] = [
       "Precision-cast open impeller for centrifugal pumps. Shell moulded for consistent vane geometry and balanced hydraulic performance in demanding fluid handling systems.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/2.jpg",
+    heroImage: "/assets/pump/2.jpg",
     price: null,
     specs: [
       "Product Type: Open Impeller",
@@ -57,7 +57,7 @@ const pumpProducts: Product[] = [
       "High-efficiency closed impeller casting for centrifugal pumps. Provides superior head and flow characteristics with minimal hydraulic losses for industrial pumping systems.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/3.jpg",
+    heroImage: "/assets/pump/3.jpg",
     price: null,
     specs: [
       "Product Type: Closed Impeller",
@@ -75,7 +75,7 @@ const pumpProducts: Product[] = [
       "Precisely cast pump back plates and rear covers manufactured via shell moulding for accurate mating surfaces and consistent sealing in centrifugal pump assemblies.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/4.jpg",
+    heroImage: "/assets/pump/4.jpg",
     price: null,
     specs: [
       "Product Type: Back Plate / Rear Cover",
@@ -93,7 +93,7 @@ const pumpProducts: Product[] = [
       "Robust bearing housing casting for centrifugal and submersible pumps. Shell mould cast for consistent bore geometry and alignment critical for long bearing life.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/5.jpg",
+    heroImage: "/assets/pump/5.jpg",
     price: null,
     specs: [
       "Product Type: Bearing Housing",
@@ -111,7 +111,7 @@ const pumpProducts: Product[] = [
       "Multi-stage turbine pump diffuser bowl cast in shell mould process. Delivers precise flow channels and consistent wall thickness critical for hydraulic efficiency in deep well and borehole pumps.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/6.jpg",
+    heroImage: "/assets/pump/6.jpg",
     price: null,
     specs: [
       "Product Type: Diffuser Bowl",
@@ -129,7 +129,7 @@ const pumpProducts: Product[] = [
       "Precision stuffing box and mechanical seal housing casting for centrifugal and process pumps. Tight dimensional tolerances ensure reliable sealing and minimal leakage.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/7.jpg",
+    heroImage: "/assets/pump/7.jpg",
     price: null,
     specs: [
       "Product Type: Stuffing Box / Seal Housing",
@@ -147,7 +147,7 @@ const pumpProducts: Product[] = [
       "Precision lantern ring and seal cage castings for pump gland packing assemblies. Engineered to maintain lubrication flow and cooling to packing rings under operating conditions.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/8.jpg",
+    heroImage: "/assets/pump/8.jpg",
     price: null,
     specs: [
       "Product Type: Lantern Ring / Seal Cage",
@@ -165,7 +165,7 @@ const pumpProducts: Product[] = [
       "Replaceable wear ring and neck ring castings for centrifugal pumps. Controls internal leakage between impeller and casing, significantly extending pump service life.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/9.jpg",
+    heroImage: "/assets/pump/9.jpg",
     price: null,
     specs: [
       "Product Type: Wear Ring / Neck Ring",
@@ -183,7 +183,7 @@ const pumpProducts: Product[] = [
       "Hardened pump shaft sleeve casting to protect the main shaft from corrosion and wear at the gland packing or mechanical seal area. Replaceable design minimises downtime.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/10.jpg",
+    heroImage: "/assets/pump/10.jpg",
     price: null,
     specs: [
       "Product Type: Shaft Sleeve",
@@ -201,7 +201,7 @@ const pumpProducts: Product[] = [
       "Robust coupling half casting for pump-to-motor drive connection. Shell moulded for concentricity and balance, reducing vibration transmission across the drive train.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/11.jpg",
+    heroImage: "/assets/pump/11.jpg",
     price: null,
     specs: [
       "Product Type: Coupling Half",
@@ -219,7 +219,7 @@ const pumpProducts: Product[] = [
       "Precision discharge elbow and volute elbow castings for centrifugal pumps. Shell moulding ensures smooth flow passage geometry for minimal pressure loss at discharge.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/12.jpg",
+    heroImage: "/assets/pump/12.jpg",
     price: null,
     specs: [
       "Product Type: Discharge Elbow / Volute Elbow",
@@ -237,7 +237,7 @@ const pumpProducts: Product[] = [
       "Suction cover and front plate castings for centrifugal pumps. Provides the pump suction inlet and retains the front wear ring, precision manufactured for leak-free assembly.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/13.jpg",
+    heroImage: "/assets/pump/13.jpg",
     price: null,
     specs: [
       "Product Type: Suction Cover / Front Plate",
@@ -255,7 +255,7 @@ const pumpProducts: Product[] = [
       "Column pipe bracket casting for vertical turbine and deep well pump installations. Provides intermediate bearing support and column alignment in long pump strings.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/14.jpg",
+    heroImage: "/assets/pump/14.jpg",
     price: null,
     specs: [
       "Product Type: Column Pipe Bracket",
@@ -273,7 +273,7 @@ const pumpProducts: Product[] = [
       "Foot valve body and suction strainer casting for pump suction lines. Prevents backflow and filters debris, ensuring continuous prime and protection of pump internals.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/15.jpg",
+    heroImage: "/assets/pump/15.jpg",
     price: null,
     specs: [
       "Product Type: Foot Valve Body / Strainer",
@@ -291,7 +291,7 @@ const pumpProducts: Product[] = [
       "Precision mechanical seal housing and gland plate casting for process pumps. Ensures accurate seal face alignment and positive liquid containment at the shaft penetration.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/16.jpg",
+    heroImage: "/assets/pump/16.jpg",
     price: null,
     specs: [
       "Product Type: Mechanical Seal Housing / Gland Plate",
@@ -309,7 +309,7 @@ const pumpProducts: Product[] = [
       "Rigid pump base plate and mounting frame casting for pump-motor sets. Precision-machined mounting pads ensure accurate alignment and vibration damping in operation.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/17.jpg",
+    heroImage: "/assets/pump/17.jpg",
     price: null,
     specs: [
       "Product Type: Base Plate / Mounting Frame",
@@ -327,7 +327,7 @@ const pumpProducts: Product[] = [
       "Non-return valve body casting for pump discharge and suction lines. Prevents reverse flow on pump shutdown protecting the pump from water hammer damage.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/18.jpg",
+    heroImage: "/assets/pump/18.jpg",
     price: null,
     specs: [
       "Product Type: Non-Return Valve Body",
@@ -345,7 +345,7 @@ const pumpProducts: Product[] = [
       "Multi-stage submersible pump bowl assembly casting. Shell moulded for tight hydraulic clearances between impeller and diffuser stage, maximising efficiency in borehole applications.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/19.jpg",
+    heroImage: "/assets/pump/19.jpg",
     price: null,
     specs: [
       "Product Type: Bowl Assembly Stage",
@@ -363,7 +363,7 @@ const pumpProducts: Product[] = [
       "Submersible pump motor end shield and bracket casting. Provides precise bearing location and hermetic sealing at the motor end for reliable underwater motor operation.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/20.jpg",
+    heroImage: "/assets/pump/20.jpg",
     price: null,
     specs: [
       "Product Type: Motor End Shield / Bracket",
@@ -381,7 +381,7 @@ const pumpProducts: Product[] = [
       "Custom-engineered pump component cast to customer drawing. Nucleus Metal Cast offers engineering support from pattern design through final machining for non-standard pump parts.",
     category: "Pump Industry",
     industry: "Pump Industry",
-    heroImage: "/src/assets/pump/21.jpg",
+    heroImage: "/assets/pump/21.jpg",
     price: null,
     specs: [
       "Product Type: Custom / Special Pump Component",
@@ -403,7 +403,7 @@ const generalEngineeringProducts: Product[] = [
       "Heavy-duty elongated cast iron housing with multiple precision counter-bored holes in-line and lateral mounting tabs. Used in engines, compressors, and general machinery for camshaft or valve train support.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/1.jpg",
+    heroImage: "/assets/general-engineering/1.jpg",
     price: null,
     specs: [
       "Product Type: Multi-Bore Housing / Carrier",
@@ -422,7 +422,7 @@ const generalEngineeringProducts: Product[] = [
       "Rigid gearbox housing casting with precision-machined bearing bores and sealing faces. Shell moulded for consistent wall thickness and minimal porosity in industrial gear drives.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/2.jpg",
+    heroImage: "/assets/general-engineering/2.jpg",
     price: null,
     specs: [
       "Product Type: Gearbox Housing / Gear Case",
@@ -440,7 +440,7 @@ const generalEngineeringProducts: Product[] = [
       "Precision-engineered gate valve body casting for industrial pipeline systems. Conforms to PN-rated pressure standards with smooth flow bore for minimal pressure drop.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/3.jpg",
+    heroImage: "/assets/general-engineering/3.jpg",
     price: null,
     specs: [
       "Product Type: Gate Valve Body",
@@ -459,7 +459,7 @@ const generalEngineeringProducts: Product[] = [
       "Heavy rigid machine tool bed and base frame casting providing a vibration-damping foundation for CNC machines, presses and general industrial equipment.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/4.jpg",
+    heroImage: "/assets/general-engineering/4.jpg",
     price: null,
     specs: [
       "Product Type: Machine Base / Bed Casting",
@@ -478,7 +478,7 @@ const generalEngineeringProducts: Product[] = [
       "Plummer block housing and bearing pedestal casting for shaft support in industrial machinery. Precision-bored to accept standard bearing outer races with consistent interference fit.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/5.jpg",
+    heroImage: "/assets/general-engineering/5.jpg",
     price: null,
     specs: [
       "Product Type: Bearing Pedestal / Plummer Block",
@@ -496,7 +496,7 @@ const generalEngineeringProducts: Product[] = [
       "Robust flange coupling hub and drive hub casting for rigid shaft-to-shaft connections. Shell moulded for concentricity and balance to handle high torque transmission.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/6.jpg",
+    heroImage: "/assets/general-engineering/6.jpg",
     price: null,
     specs: [
       "Product Type: Flange Coupling Hub",
@@ -514,7 +514,7 @@ const generalEngineeringProducts: Product[] = [
       "Precision cast iron V-belt pulley and flat belt sheave for industrial drive systems. Dynamically balanced for smooth high-speed operation in compressors, fans and conveyors.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/7.jpg",
+    heroImage: "/assets/general-engineering/7.jpg",
     price: null,
     specs: [
       "Product Type: Belt Pulley / V-Belt Sheave",
@@ -532,7 +532,7 @@ const generalEngineeringProducts: Product[] = [
       "Precision cast castellated nut with six top slots for cotter pin locking. Manufactured to exact dimensional tolerances for safety-critical fastening in automotive, agricultural and industrial machinery.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/8.jpg",
+    heroImage: "/assets/general-engineering/8.jpg",
     price: null,
     specs: [
       "Product Type: Fastening Component — Castellated Nut",
@@ -551,7 +551,7 @@ const generalEngineeringProducts: Product[] = [
       "Oval body thumb nut casting with integral thumb lug and threaded central bore. Enables tool-free tightening in jig fixtures, clamping systems and hand-operated assemblies.",
     category: "General Engineering",
     industry: "General Engineering",
-    heroImage: "/src/assets/general-engineering/9.jpg",
+    heroImage: "/assets/general-engineering/9.jpg",
     price: null,
     specs: [
       "Product Type: Hand Fastening Component",
@@ -574,7 +574,7 @@ const fireIndustryProducts: Product[] = [
       "Cast iron square head pipe plug with solid round base for sealing and blanking off pipe ends, test points and unused port openings in fire hydrant, sprinkler and industrial pipework systems.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/1.jpg",
+    heroImage: "/assets/fire-industry/1.jpg",
     price: null,
     specs: [
       "Product Type: Pipe Sealing Component",
@@ -594,7 +594,7 @@ const fireIndustryProducts: Product[] = [
       "Female instantaneous quick-connect coupling with a hexagonal wrench head and lobster-claw bayonet base. ISI marked per IS 903 for rapid hose-to-hydrant connections in fire brigades and industrial fire systems.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/2.jpg",
+    heroImage: "/assets/fire-industry/2.jpg",
     price: null,
     specs: [
       "Product Type: Fire Hose Coupling Component",
@@ -614,7 +614,7 @@ const fireIndustryProducts: Product[] = [
       "Compact male instantaneous coupling with an integral ribbed hose shank. ISI-marked per IS 903 for lightweight fire hose assemblies and portable pump applications. Ribbed shank ensures secure crimping under working pressure.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/3.jpg",
+    heroImage: "/assets/fire-industry/3.jpg",
     price: null,
     specs: [
       "Product Type: Fire Hose Coupling Component",
@@ -634,7 +634,7 @@ const fireIndustryProducts: Product[] = [
       "Heavy-duty large-bore male instantaneous coupling with an extended ribbed hose shank. Built for high-pressure, large-diameter fire hose applications including trunk mains, ladder monitors and hydrant boosters.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/4.jpg",
+    heroImage: "/assets/fire-industry/4.jpg",
     price: null,
     specs: [
       "Product Type: Fire Hose Coupling Component — Heavy Duty",
@@ -654,7 +654,7 @@ const fireIndustryProducts: Product[] = [
       "Mid-size female instantaneous coupling with integrated hose tail and two-lug quick-release base. The lug-type bayonet design allows single-hand coupling and uncoupling under field conditions.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/5.jpg",
+    heroImage: "/assets/fire-industry/5.jpg",
     price: null,
     specs: [
       "Product Type: Fire Hose Coupling Component",
@@ -674,7 +674,7 @@ const fireIndustryProducts: Product[] = [
       "Premium precision-machined male instantaneous coupling with a threaded hose shank and mirror-polished mating surfaces. Ideal for premium fire-fighting equipment, offshore fire systems and export-grade hose assemblies.",
     category: "Fire Industry",
     industry: "Fire Industry",
-    heroImage: "/src/assets/fire-industry/6.jpg",
+    heroImage: "/assets/fire-industry/6.jpg",
     price: null,
     specs: [
       "Product Type: Fire Hose Coupling — Precision Machined",
@@ -697,7 +697,7 @@ const powerPlantProducts: Product[] = [
       "Heavy-duty elongated cast iron support bracket and camshaft carrier with seven precision counter-bored holes in-line and lateral mounting tabs. Used in power plant auxiliary engines, compressors and turbine governor systems.",
     category: "Power Plant",
     industry: "Power Plant",
-    heroImage: "/src/assets/power-plant/1.jpg",
+    heroImage: "/assets/power-plant/1.jpg",
     price: null,
     specs: [
       "Product Type: Engine / Turbine Support Component",
@@ -716,7 +716,7 @@ const powerPlantProducts: Product[] = [
       "Precision-cast rectangular hammer bar and crusher wear block for coal mill and pulveriser applications in thermal power stations. Cast in high-hardness alloy iron (60–65 HRC) to resist abrasive wear inherent in coal crushing.",
     category: "Power Plant",
     industry: "Power Plant",
-    heroImage: "/src/assets/power-plant/2.jpg",
+    heroImage: "/assets/power-plant/2.jpg",
     price: null,
     specs: [
       "Product Type: Wear / Crusher Component",
@@ -735,7 +735,7 @@ const powerPlantProducts: Product[] = [
       "Heavy-duty ribbed grate bar manufactured to CKP specification, supplied in matched pairs. The parallel ridge profile increases burning surface area, promotes uniform air distribution and resists thermal warping during continuous combustion in chain grate and travelling grate boilers.",
     category: "Power Plant",
     industry: "Power Plant",
-    heroImage: "/src/assets/power-plant/3.jpg",
+    heroImage: "/assets/power-plant/3.jpg",
     price: null,
     specs: [
       "Product Type: Combustion / Boiler Component",
@@ -759,7 +759,7 @@ const railwayProducts: Product[] = [
       "Z-profile cast iron rail clip and hook bolt for track fastening to sleepers and tie plates. The Z-shaped geometry provides spring-loaded clamp force on the rail foot, absorbing dynamic train loads and preventing rail creep.",
     category: "Railway",
     industry: "Railway",
-    heroImage: "/src/assets/railway/1.jpg",
+    heroImage: "/assets/railway/1.jpg",
     price: null,
     specs: [
       "Product Type: Track Fastening Component",
@@ -779,7 +779,7 @@ const railwayProducts: Product[] = [
       "Long flat-bar hook bolt and fishplate fastening lever with a clevis / forked foot and two fastening holes at the blade end. Used for joining rail sections via fishplates and securing track components in heavy-haul and mainline railway applications.",
     category: "Railway",
     industry: "Railway",
-    heroImage: "/src/assets/railway/2.jpg",
+    heroImage: "/assets/railway/2.jpg",
     price: null,
     specs: [
       "Product Type: Rail Joining / Fastening Component",
@@ -799,7 +799,7 @@ const railwayProducts: Product[] = [
       "Y-fork profile rail anchor and tie plate clip designed to prevent longitudinal rail movement under dynamic train loads. The forked toe engages the underside of the rail foot and tie plate flange simultaneously, providing bi-directional anti-creep restraint.",
     category: "Railway",
     industry: "Railway",
-    heroImage: "/src/assets/railway/3.jpg",
+    heroImage: "/assets/railway/3.jpg",
     price: null,
     specs: [
       "Product Type: Track Anti-Creep Component",

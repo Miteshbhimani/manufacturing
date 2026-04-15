@@ -12,13 +12,10 @@ load_dotenv(override=True)
 
 app = FastAPI(title="AI Chatbot Backend")
 
-    allow_origins=[
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://nucleus.netlify.app",
-        "https://benevolent-bavarois-0cadab.netlify.app"
-    ],
-    allow_credentials=True,
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
