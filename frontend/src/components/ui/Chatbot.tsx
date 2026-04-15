@@ -120,7 +120,8 @@ const Chatbot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const aiApiUrl = import.meta.env.VITE_AI_API_URL || 'http://localhost:8000';
+      // Temporarily hardcoded to fix CORS issue - should use env var in production
+      const aiApiUrl = 'https://chatbot-8jk1.onrender.com';
       console.log('AI API URL:', aiApiUrl); // Debug log to verify URL
       const response = await fetch(`${aiApiUrl}/chat`, {
         method: 'POST',
