@@ -154,23 +154,96 @@ class SimpleAIAgent:
         except Exception as e:
             # Check if it's an authentication error
             if "401" in str(e) or "User not found" in str(e):
-                return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+                # Analyze user query to provide more relevant fallback response
+                user_query_lower = user_query.lower()
+                
+                # Product-related queries
+                if any(keyword in user_query_lower for keyword in ['product', 'manufacturing', 'make', 'produce']):
+                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
 
-However, I can still help you with basic information about Nucleus Metal Cast Private Limited:
+However, I can provide information about our manufacturing capabilities:
+
+**Nucleus Metal Cast Private Limited - Manufacturing Products:**
+
+## **Shell Castings**
+- Industrial pump castings
+- Valve components
+- Marine hardware castings
+- Automotive components
+- General engineering castings
+
+## **Pumps and Pump Components** 
+- Centrifugal pumps
+- Submersible pumps
+- Monoblock pumps
+- Pump spare parts
+- Custom pump solutions
+
+## **Precision Industrial Components**
+- High-precision machined parts
+- Custom cast components
+- Industrial valves
+- Engineering components
+
+## **Industrial Castings**
+- Heavy-duty castings
+- Infrastructure components
+- Railway castings
+- Power plant components
+- Fire industry castings
 
 **Company Information:**
 - **Company Name:** Nucleus Metal Cast Private Limited
 - **GSTIN:** 24AAFCN3454D1ZP
 - **Specialization:** Shell casting, pump manufacturing, and precision industrial components
 
-**Our Products:**
+For detailed product specifications and inquiries, please visit our website or contact our sales team directly.
+
+I apologize for the inconvenience and appreciate your understanding."""
+                
+                # Company information queries
+                elif any(keyword in user_query_lower for keyword in ['company', 'about', 'who', 'gstin', 'contact']):
+                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+
+Here's our company information:
+
+**Nucleus Metal Cast Private Limited**
+
+**Company Details:**
+- **GSTIN:** 24AAFCN3454D1ZP
+- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
+- **Industry:** Manufacturing and Engineering
+
+**Our Expertise:**
+- Shell casting technology
+- Pump manufacturing
+- Precision component manufacturing
+- Industrial casting solutions
+- Custom manufacturing solutions
+
+**Contact Information:**
+For business inquiries, technical support, or detailed information about our products and services, please visit our website or contact us directly.
+
+I apologize for the inconvenience and appreciate your understanding."""
+                
+                # Default response
+                else:
+                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+
+**Nucleus Metal Cast Private Limited - Company Overview:**
+
+**Our Manufacturing Services:**
 - Shell Castings
-- Pumps and Pump Components
+- Pumps and Pump Components  
 - Precision Industrial Components
 - Industrial Castings
 
-**Contact Information:**
-Please visit our website or contact us directly for detailed product information and inquiries.
+**Company Information:**
+- **Company Name:** Nucleus Metal Cast Private Limited
+- **GSTIN:** 24AAFCN3454D1ZP
+- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
+
+For specific product information, technical specifications, or business inquiries, please visit our website or contact our team directly.
 
 I apologize for the inconvenience and appreciate your understanding."""
             else:
