@@ -10,7 +10,7 @@ from crawler import WebsiteCrawler
 load_dotenv(override=True)
 
 class SimpleAIAgent:
-    def __init__(self, model_name="openai/gpt-4o-mini", use_dynamic_data=True):
+    def __init__(self, model_name="meta-llama/llama-3.2-3b-instruct:free", use_dynamic_data=True):
         self.llm = ChatOpenAI(
             openai_api_base="https://openrouter.ai/api/v1",
             openai_api_key=os.getenv("OPENROUTER_API_KEY"),
@@ -20,7 +20,7 @@ class SimpleAIAgent:
         
         self.use_dynamic_data = use_dynamic_data
         self.dynamic_fetcher = DynamicProductFetcher() if use_dynamic_data else None
-        self.website_crawler = WebsiteCrawler("https://encoreshellcastllp.com/")
+        self.website_crawler = WebsiteCrawler("https://benevolent-bavarois-0cadab.netlify.app/")
         self.cached_website_data = None
         
         # Get product data (dynamic or static)
