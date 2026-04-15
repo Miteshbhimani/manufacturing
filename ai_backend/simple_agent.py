@@ -305,7 +305,7 @@ class SimpleAIAgent:
         response += "- **Company Name:** Nucleus Metal Cast Private Limited\n"
         response += "- **GSTIN:** 24AAFCN3454D1ZP\n"
         response += "- **Specialization:** Shell casting, pump manufacturing, and precision industrial components\n\n"
-        response += "Please visit our website at https://encoreshellcastllp.com/ for detailed information about our products and services, or try again later when our website analysis is functional."
+        response += "Please visit our website at https://benevolent-bavarois-0cadab.netlify.app/ for detailed information about our products and services, or try again later when our website analysis is functional."
         
         return response
 

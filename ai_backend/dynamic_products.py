@@ -13,7 +13,7 @@ from crawler import WebsiteCrawler
 import time
 
 class DynamicProductFetcher:
-    def __init__(self, base_url="https://encoreshellcastllp.com/"):
+    def __init__(self, base_url="https://benevolent-bavarois-0cadab.netlify.app/"):
         self.base_url = base_url
         self.products_cache = {}
         self.last_update = 0

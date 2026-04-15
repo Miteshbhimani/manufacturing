@@ -71,7 +71,7 @@ def background_reindex(base_url: str):
 
 @app.post("/reindex")
 async def reindex(background_tasks: BackgroundTasks):
-    base_url = os.getenv("BASE_URL", "https://encoreshellcastllp.com/")
+    base_url = os.getenv("BASE_URL", "https://benevolent-bavarois-0cadab.netlify.app/")
     background_tasks.add_task(background_reindex, base_url)
     return {"message": "Reindexing started in background"}
 

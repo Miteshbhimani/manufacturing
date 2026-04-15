@@ -15,6 +15,6 @@ services:
       - key: OPENROUTER_API_KEY
         sync: false
       - key: BASE_URL
-        value: https://encoreshellcastllp.com/
+        value: https://benevolent-bavarois-0cadab.netlify.app/
       - key: ALLOWED_ORIGINS
         value: https://nucleus.netlify.app,http://localhost:3000,http://localhost:5173
