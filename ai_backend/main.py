@@ -14,10 +14,16 @@ app = FastAPI(title="AI Chatbot Backend")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=False,
-    allow_methods=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "https://benevolent-bavarois-0cadab.netlify.app",
+        "*"  # Fallback for development
+    ],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
 
 @app.get("/")
