@@ -163,7 +163,7 @@ const Chatbot: React.FC = () => {
           </div>
 
           {/* Messages */}
-          <div className="h-96 overflow-y-auto p-4 flex flex-col gap-3 bg-gray-50">
+          <div className="h-96 overflow-y-auto p-4 flex flex-col gap-3 bg-gray-50 chatbot-messages-container">
             {messages.length === 0 && (
               <div className="text-center text-gray-500 text-sm mt-10 px-4">
                 Hello! How can I help you today with information about our manufacturing services or products?
@@ -172,7 +172,7 @@ const Chatbot: React.FC = () => {
             {messages.map((msg, idx) => (
               <div
                 key={idx}
-                className={`max-w-[85%] p-3 rounded-lg text-sm overflow-hidden ${
+                className={`max-w-[85%] p-3 rounded-lg text-sm break-words ${
                   msg.role === 'user'
                     ? 'bg-blue-600 text-white self-end rounded-br-none'
                     : 'bg-white text-gray-800 self-start rounded-bl-none shadow-sm border border-gray-100'
@@ -182,7 +182,7 @@ const Chatbot: React.FC = () => {
                   <div className="break-words overflow-wrap-anywhere">{msg.content}</div>
                 ) : (
                   <div 
-                    className="chatbot-response overflow-hidden"
+                    className="chatbot-response w-full overflow-hidden"
                     dangerouslySetInnerHTML={{ __html: formatBotResponse(msg.content) }}
                   />
                 )}

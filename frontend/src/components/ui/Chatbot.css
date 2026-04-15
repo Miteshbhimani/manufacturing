@@ -9,6 +9,9 @@
   white-space: pre-wrap;
   max-width: 100%;
   box-sizing: border-box;
+  display: block;
+  width: 100%;
+  overflow: visible;
 }
 
 /* Headings */
@@ -84,7 +87,9 @@
   background: linear-gradient(120deg, #dbeafe 0%, #eff6ff 100%);
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
-  display: inline-block;
+  display: inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Paragraphs */
@@ -206,10 +211,12 @@
   animation: fadeInUp 0.3s ease-out;
 }
 
-/* Additional overflow prevention */
+/* Additional overflow prevention and text wrapping */
 .chatbot-response * {
   max-width: 100%;
   box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .chatbot-response h3,
@@ -219,14 +226,45 @@
 .chatbot-response .info-box,
 .chatbot-response .company-info,
 .chatbot-response .process-step {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
-/* Ensure long text doesn't break layout */
-.chatbot-response .highlight {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  display: inline;
+/* Ensure proper text flow */
+.chatbot-response br {
+  display: block;
+  margin: 0.25rem 0;
+  content: "";
+}
+
+.chatbot-response .spacing {
+  display: block;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Ensure proper scrolling for chatbot messages container */
+.chatbot-messages-container {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.chatbot-messages-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot-messages-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.chatbot-messages-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.chatbot-messages-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
