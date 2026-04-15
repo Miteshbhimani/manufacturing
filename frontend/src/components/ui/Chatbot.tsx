@@ -121,6 +121,7 @@ const Chatbot: React.FC = () => {
 
     try {
       const aiApiUrl = import.meta.env.VITE_AI_API_URL || 'http://localhost:8000';
+      console.log('AI API URL:', aiApiUrl); // Debug log to verify URL
       const response = await fetch(`${aiApiUrl}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
