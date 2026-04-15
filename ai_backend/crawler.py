@@ -11,6 +11,7 @@ class WebsiteCrawler:
         self.max_pages = max_pages
         self.visited_urls = set()
         self.content_data = []
+        self.timeout = 15  # Increased timeout for production
 
     def is_valid_url(self, url):
         parsed = urlparse(url)
@@ -38,8 +39,9 @@ class WebsiteCrawler:
         self.visited_urls.add(url)
 
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=self.timeout)
             if response.status_code != 200:
+                print(f"Failed to fetch {url}: HTTP {response.status_code}")
                 return
 
             content_type = response.headers.get('Content-Type', '')
@@ -47,6 +49,18 @@ class WebsiteCrawler:
             if 'text/html' in content_type:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 
+                # Check for meta refresh
+                meta_refresh = soup.find('meta', attrs={'http-equiv': lambda x: x and x.lower() == 'refresh'})
+                if meta_refresh:
+                    content = meta_refresh.get('content', '')
+                    if 'url=' in content.lower():
+                        refresh_url = content.lower().split('url=')[1].strip()
+                        # Resolve the URL relative to the current one
+                        refresh_url = urljoin(url, refresh_url)
+                        if refresh_url not in self.visited_urls:
+                            print(f"Following meta refresh to: {refresh_url}")
+                            return self.crawl(refresh_url)
+
                 # Remove noise
                 for script_or_style in soup(["script", "style", "nav", "footer", "header"]):
                     script_or_style.decompose()
@@ -63,8 +77,10 @@ class WebsiteCrawler:
                         path = urlparse(link).path
                         last_part = path.split('/')[-1] if path else ""
                         if link.endswith(('.html', '/', '.php')) or '.' not in last_part:
-                             self.crawl(link)
+                            print(f"Found link to crawl: {link}")
+                            self.crawl(link)
                         elif link.lower().endswith('.pdf'):
+                            print(f"Found PDF to process: {link}")
                             self.crawl_pdf(link)
 
             elif 'application/pdf' in content_type:
