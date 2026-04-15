@@ -21,14 +21,19 @@ app.add_middleware(
         "*"  # Fallback for development
     ],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"],
     allow_headers=["*"],
-    expose_headers=["*"]
+    expose_headers=["*"],
+    max_age=600
 )
 
 @app.get("/")
 async def root():
     return {"message": "AI Chatbot Backend is running", "status": "ok"}
+
+@app.options("/chat")
+async def options_chat():
+    return {"message": "CORS preflight successful"}
 
 agent = AIAgent()
 db_manager = VectorDBManager()

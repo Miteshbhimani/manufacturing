@@ -1,0 +1,14 @@
+services:
+  # AI Backend Service
+  - type: web
+    name: nucleus-ai
+    runtime: python
+    plan: free
+    autoDeploy: true
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12
+      - key: PORT
+        value: 8000
