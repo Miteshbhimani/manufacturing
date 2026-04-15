@@ -5,6 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from products_database import PRODUCTS_DATABASE, get_all_product_names, get_products_by_category, search_products
 from dynamic_products import DynamicProductFetcher
+from crawler import WebsiteCrawler
 
 load_dotenv(override=True)
 
@@ -19,6 +20,8 @@ class SimpleAIAgent:
         
         self.use_dynamic_data = use_dynamic_data
         self.dynamic_fetcher = DynamicProductFetcher() if use_dynamic_data else None
+        self.website_crawler = WebsiteCrawler("https://encoreshellcastllp.com/")
+        self.cached_website_data = None
         
         # Get product data (dynamic or static)
         if use_dynamic_data:
@@ -127,6 +130,38 @@ class SimpleAIAgent:
         
         return None
     
+    def fetch_website_data(self):
+        """Fetch real-time data from website"""
+        try:
+            if self.cached_website_data is None:
+                print("Fetching fresh website data...")
+                self.website_crawler.crawl()
+                self.cached_website_data = self.website_crawler.get_all_content()
+                print(f"Fetched {len(self.cached_website_data)} pages from website")
+            return self.cached_website_data
+        except Exception as e:
+            print(f"Error fetching website data: {e}")
+            return []
+    
+    def search_website_content(self, query):
+        """Search website content for relevant information"""
+        website_data = self.fetch_website_data()
+        if not website_data:
+            return []
+        
+        query_lower = query.lower()
+        relevant_content = []
+        
+        for page in website_data:
+            content_lower = page['content'].lower()
+            if any(word in content_lower for word in query_lower.split() if len(word) > 2):
+                relevant_content.append({
+                    'url': page['url'],
+                    'content': page['content'][:500] + '...' if len(page['content']) > 500 else page['content']
+                })
+        
+        return relevant_content[:3]  # Return top 3 relevant pages
+    
     def chat(self, user_query, chat_history=None):
         try:
             # Check if this is a product-specific query
@@ -154,12 +189,37 @@ class SimpleAIAgent:
         except Exception as e:
             # Check if it's an authentication error
             if "401" in str(e) or "User not found" in str(e):
-                # Analyze user query to provide more relevant fallback response
-                user_query_lower = user_query.lower()
+                # Use website data to provide dynamic response
+                website_content = self.search_website_content(user_query)
                 
-                # Product-related queries
-                if any(keyword in user_query_lower for keyword in ['product', 'manufacturing', 'make', 'produce']):
-                    return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+                if website_content:
+                    response = f"""I apologize, but I'm currently experiencing technical difficulties with my AI service. 
+
+However, I've scanned our website and found the following relevant information:
+
+**Information from Nucleus Metal Cast Website:**
+
+"""
+                    for i, content in enumerate(website_content, 1):
+                        response += f"**Page {i}:** {content['url']}\n"
+                        response += f"{content['content']}\n\n"
+                    
+                    response += f"""
+**Company Information:**
+- **Company Name:** Nucleus Metal Cast Private Limited
+- **GSTIN:** 24AAFCN3454D1ZP
+- **Specialization:** Shell casting, pump manufacturing, and precision industrial components
+
+This information is gathered directly from our website in real-time. For more details, please visit our website or contact us directly.
+
+I apologize for the inconvenience and appreciate your understanding."""
+                    return response
+                else:
+                    # Fallback to enhanced static response
+                    user_query_lower = user_query.lower()
+                    
+                    if any(keyword in user_query_lower for keyword in ['product', 'manufacturing', 'make', 'produce']):
+                        return """I apologize, but I'm currently experiencing technical difficulties with my AI service. 
 
 However, I can provide information about our manufacturing capabilities:
 
